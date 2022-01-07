@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Component</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+        const $ul = document.querySelector('ul');
+        let algorithmList = [];
+        const dataList = [
+            {
+                id : '1-1',
+                title : 'Context Menu',
+                link : 'index.html'
+            },
+            {
+                id : '1-2',
+                title : 'Dropdown Menu',
+                link : 'index.html'
+            },
+            {
+                id : '1-3',
+                title : '메뉴 밑줄 슬라이딩',
+                link : './menu_underbar_sliding/index.html'
+            }
+        ]
+        for (const item in dataList) {
+            let listCon = `
+                <li>
+                    <span>${dataList[item].id}</span>
+                    <a href="${dataList[item].link}" target="_blank">
+                        ${dataList[item].title}
+                    </a>
+                </li>
+            `;
+            algorithmList += listCon;
+            // break;
+        }
+        $ul.innerHTML = algorithmList;
+    </script>
+</body>
+</html>

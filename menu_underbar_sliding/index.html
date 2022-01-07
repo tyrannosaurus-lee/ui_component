@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 밑줄 슬라이딩 애니메이션</title>
+    <style>
+       nav:first-child {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+    nav:nth-child(2){
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    nav a {
+        text-decoration: none;
+        color:black;
+        margin: 1em;
+        font-size: 2em;
+    }
+
+    #horizontal-underline{
+        position: absolute;
+        left:0;
+        height: 4px;
+        /* width: 0; */
+        border-radius: 3px;
+        transition: 0.5s;
+        background-color: pink;
+        top:0;
+
+    }
+
+    #vertical-underline{
+        position: absolute;
+        left:0;
+        height: 4px;
+        /* width: 0; */
+        border-radius: 3px;
+        transition: 0.5s;
+        background-color: skyblue;
+        top:0;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="horizontal-underline"></div>
+        <a href="#">About</a>
+        <a href="#">Menu</a>
+        <a href="#">Store</a>
+        <a href="#">Service</a>
+        <a href="#">Responsibility</a>
+    </nav>
+    <nav>
+        <div id="vertical-underline"></div>
+        <a href="#">About</a>
+        <a href="#">Menu</a>
+        <a href="#">Store</a>
+        <a href="#">Service</a>
+        <a href="#">Responsibility</a>
+    </nav>
+    <script>
+        let horizontalUnderLine = document.getElementById("horizontal-underline");
+        let horizontalMenus = document.querySelectorAll("nav:first-child a");
+        let verticalUnderLine = document.getElementById("vertical-underline");
+        let verticalMenus = document.querySelectorAll("nav:nth-child(2) a");
+
+
+        function horizontalIndicator(e) {
+            horizontalUnderLine.style.left = e.offsetLeft + "px";
+            horizontalUnderLine.style.width = e.offsetWidth + "px";
+            horizontalUnderLine.style.top = e.offsetTop + e.offsetHeight + "px";
+        }
+        horizontalMenus.forEach((menu) =>
+            menu.addEventListener("click", (e) =>
+                horizontalIndicator(e.currentTarget)
+            )
+        )
+
+        function verticalIndicator(e) {
+            verticalUnderLine.style.left = e.offsetLeft + "px";
+            verticalUnderLine.style.width = e.offsetWidth + "px";
+            verticalUnderLine.style.top = e.offsetTop + e.offsetHeight + "px";
+        }
+        verticalMenus.forEach((menu) =>
+            menu.addEventListener("click", (e) =>
+                verticalIndicator(e.currentTarget)
+            )
+        )
+
+    </script>
+</body>
+</html>
