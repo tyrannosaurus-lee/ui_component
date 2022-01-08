@@ -44,4 +44,4 @@
     z-index: 1;
   }
 
-  /* do something here! */
+  .item.open .context {display:block;}
