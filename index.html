@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Component</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+        const $ul = document.querySelector('ul');
+        let algorithmList = [];
+        const dataList = [
+            {
+                id : '1-1',
+                title : 'Context Menu1',
+                link : './menu_context1/index.html'
+            },
+            {
+                id : '1-2',
+                title : 'Context Menu2 - html태그 활용',
+                link : './menu_context2/index.html'
+            },
+            {
+                id : '1-3',
+                title : 'Dropdown Menu',
+                link : 'index.html'
+            },
+            {
+                id : '1-4',
+                title : '메뉴 밑줄 슬라이딩',
+                link : './menu_underbar_sliding/index.html'
+            }
+        ]
+        for (const item in dataList) {
+            let listCon = `
+                <li>
+                    <span>${dataList[item].id}</span>
+                    <a href="${dataList[item].link}" target="_blank">
+                        ${dataList[item].title}
+                    </a>
+                </li>
+            `;
+            algorithmList += listCon;
+            // break;
+        }
+        $ul.innerHTML = algorithmList;
+    </script>
+    <!--
+        강의명        ->   폴더명 (순번. 타이틀)
+
+        1Context Menu -> menu_context1(1-1.Context Menu1), menu_context2(1-2.Context Menu2)
+
+        2Infinite Scroll
+
+        3Scroll Spy
+
+        4Scroll Top
+
+        5List
+
+        6Stop Watch 1
+
+        7Stop Watch 2
+
+        8Analog Clock
+
+        9Pagination
+
+        10Dark Mode
+
+        11Modal Window 1
+
+        12Carousel 1
+
+        13Search Bar
+
+        14Auto Complete 1
+
+        15Auto Complete 2
+
+        16Instant Search 1
+
+        17Dropdown Menu
+
+        18Combo Box
+
+        19Radio Box
+
+        20Rating UI
+
+        21Modal Window 2
+
+        22Scroll Indicator
+
+        23Loading
+
+        24Progress Bar
+
+        25Chips UI
+
+        26Toggle Button
+
+        27Carousel 2
+
+        28Tabs
+
+        29Instant Search 2
+
+        30Check Box
+     -->
+</body>
+</html>
