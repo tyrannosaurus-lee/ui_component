@@ -34,22 +34,42 @@
             },
             {
                 id : '2-1',
-                title : 'Button1',
+                title : '버튼1 - fetch API',
                 link : './button_fetchAPI/index.html'
+            },
+            {
+                id : '3-1',
+                title : 'List1 - fetch',
+                link : './list1/fetch.html'
+            },
+            {
+                id : '3-2',
+                title : 'List1 - axios',
+                link : './list1/axios.html'
+            },
+            {
+                id : '3-3',
+                title : 'List1 - async',
+                link : './list1/async.html'
             },
         ]
         for (const item in dataList) {
             let listCon = `
-                <li>
+                <li class="list">
                     <span>${dataList[item].id}</span>
                     <a href="${dataList[item].link}" target="_blank">
                         ${dataList[item].title}
                     </a>
                 </li>
             `;
-            algorithmList += listCon;
             // break;
+            // if(`<span>${dataList[item].id}</span>`.includes('-1')){
+            //     `<span class="first">${dataList[item].id}</span>`;
+            // };
+            algorithmList += listCon;
+            
         }
+        // let 
         $ul.innerHTML = algorithmList;
     </script>
     <!--
@@ -63,7 +83,7 @@
 
         4Scroll Top
 
-        5List
+        5List -> list1
 
         6Stop Watch 1
 
