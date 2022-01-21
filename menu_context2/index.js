@@ -4,7 +4,8 @@ import "./style.css";
 const items = document.querySelectorAll('details');
 
 document.body.addEventListener('click', function(e){
-    // summary와p에 해당하는 것이 현재 클릭한 대상의 details가 아니라 details의 하위에 있는 summary와 p에서 클릭이 발생
+    // summary와p에 해당하는 것이 현재 클릭한 대상의 details가 아니라 
+    // details의 하위에 있는 summary와 p에서 클릭이 발생
     // summary와 p가 아닐경우 다 지워줘라
     if(e.target.nodeName !== 'P' && e.target.nodeName !== 'SUMMARY'){
         items.forEach(function(item){
