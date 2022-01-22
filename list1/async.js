@@ -15,13 +15,12 @@ const printPosts = res => {
 }
 
 // HTTP 통신
-const fetchPosts = async () => {
-    return await axios.get(API);
+const fetchPosts = async => {
+    return await axios.get(url);
 }
 
 const render = async (callApi, callTemplate) => {
-    const res = await callApi();
-    callTemplate(res);
+
 }
 
 (async () => {
@@ -30,5 +29,5 @@ const render = async (callApi, callTemplate) => {
     } catch (e){
         console.log(e);
     }
-})();
+})
 // //axios refactoring
