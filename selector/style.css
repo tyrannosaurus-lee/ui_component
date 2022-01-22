@@ -1,0 +1,36 @@
+#container {
+  width: 800px;
+  height: 500px;
+  margin: 0 auto;
+  padding: 20px 10px 0 50px;
+  border: 2px solid #ccc;
+}
+#img_load, #desc {
+  float: left;
+}
+#img_load img {
+  border: 1px solid #ccc;            
+}
+#img_load {
+  margin-right: 10px;
+}
+.spn {
+  font-weight: 700;
+  font-size: 1.0em;
+  font-style: italic;
+}
+.bright {
+  color: blue;
+}
+h1{
+  font-size: 1.8em;
+}
+h2{
+  font-size: 1.3em;
+  color: #222;
+}
+p {
+  font-size: 0.9em;
+  line-height: 1.4;
+  text-align: justify;
+}
