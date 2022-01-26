@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Component</title>
+    <style>
+    body {background: #e1e3de;}
+    li {
+        list-style: none;
+        border: 1px solid #ccc;
+        margin-top: -1px;
+        line-height: 2;
+        padding: 5px 20px;
+        background: white;
+    }
+    li span {padding-right:5px; font-size:12px;}
+    li a {color:#222; text-decoration:none;}
+    </style>
 </head>
 <body>
     <ul></ul>
@@ -70,21 +83,30 @@
                 id : '6-1',
                 title : 'combo box',
                 link : './combo_box/index.html'
+            },
+            {
+                id : '6-2',
+                title : '요소 추가',
+                link : './createTextNode/index.html'
             }
         ]
+
         for (const item in dataList) {
             let listCon = `
                 <li class="list">
-                    <span>${dataList[item].id}</span>
+                    <span class="num">${dataList[item].id}</span>
                     <a href="${dataList[item].link}" target="_blank">
                         ${dataList[item].title}
                     </a>
                 </li>
             `;
             // break;
-            // if(`<span>${dataList[item].id}</span>`.includes('-1')){
-            //     `<span class="first">${dataList[item].id}</span>`;
-            // };
+            if(`<span class="num">${dataList[item].id}</span>`.includes('-1')){
+                // `<span class="first">${dataList[item].id}</span>`;
+                console.log(this.parentNode );
+
+
+            };
             algorithmList += listCon;
 
         }
