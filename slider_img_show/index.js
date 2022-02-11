@@ -17,10 +17,10 @@ function changePic(){
 const pic = document.querySelector("#pic");
 // id선택자인 pic에게 마우스가 올라가면 changePic()를 호출하고, false는 버블링을 하지 않겠다는 뜻
 // 버블링이란 이벤트가 하위요소에서 발생하면 이게 상위요소까지 전파되는 형태
-pic.addEventListener("mouseover", changePic, false);
+pic.addEventListener("mouseover", changePic2, false);
 pic.addEventListener("mouseout", originPic, false);
 
-function changePic(){
+function changePic2(){
     pic.src = "img/boy.png";
 }
 
