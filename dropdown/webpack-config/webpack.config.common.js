@@ -37,8 +37,8 @@ module.exports = {
         }),
 
         new CopyWebpackPlugin([
-            { from: './src/solution/dropdown/assets/**', to: './assets', flatten: true },
-            { from: './src/solution/dropdown/**', to: './', flatten: true }
+            { from: './src/dropdown/assets/**', to: './assets', flatten: true },
+            { from: './src/dropdown/**', to: './', flatten: true }
         ]),
     ]
 };

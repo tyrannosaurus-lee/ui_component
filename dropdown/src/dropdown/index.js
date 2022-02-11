@@ -29,7 +29,8 @@ export class DropDownList {
         // 선택할 때 마다 선택된 라벨을 표현해줄 element setup
         this.dropdownLabel = this.initialize(document.querySelector(configuration.selector), this.emptyLabel);
         // backdrop 영역 element setup
-        this.backdrop = document.querySelector(configuration.backdrop);this.dropdownItem = this.displayDropdownItemList(this.backdrop, configuration.data);
+        this.backdrop = document.querySelector(configuration.backdrop);
+        this.dropdownItem = this.displayDropdownItemList(this.backdrop, configuration.data);
         // event listen
         this.eventBinding();
     }
@@ -76,17 +77,17 @@ export class DropDownList {
         // 리스트를 갱신해야하므로 innerHTML사용함.
         selector.innerHTML = render;
 
-        // label position에 dropdown list 영역을 출력하기 위해 좌표를 가져오기 위한 getBoundingClientRect 함수호출
-        const labelRect = this.dropdownLabel.getBoundingClientRect();
+        // q1. label position에 dropdown list 영역을 출력하시오.
+        // TODO: Write JS code here!'
+        // label position에 dropdown list 영역을 출력
         const target = document.querySelector('.dropdown-item-list-box');
-        // +5 는 라벨영역이 살짝 보이게 하기 위함.
+        // label의 사이즈와 위치정보를 가져옴 
+        const labelRect = this.dropdownLabel.getBoundingClientRect();
         target.style.cssText = `
-            position: absolute; 
+            position:absolute;
             width: ${labelRect.width}px;
             top: ${labelRect.top + 5}px;
-            left: ${labelRect.left}px;
         `;
-
         return target;
     }
 
@@ -95,17 +96,23 @@ export class DropDownList {
     * description: 모든 이벤트를 처리한다.
     */
     eventBinding() {
+        // backdrop 영역 클릭 시 이벤트
         this.backdrop.addEventListener('click', () => {
-            this.backdrop.style.cssText = 'display: none;';
+            // q2. backdrop 영역 클릭 시의 이벤트를 처리하시오.
+            // 외부 클릭했을 때 이벤트 처리
+            this.backdrop.style.cssText = 'display:none';
         });
 
+        // label 영역 클릭 시 이벤트
         this.dropdownLabel.addEventListener('click', () => {
-            this.backdrop.style.cssText = 'display: block;';
+            // q3. label 영역 클릭 시의 이벤트를 처리하시오.
+            // dropdown list 출력
+            this.backdrop.style.cssText = 'display:block';
         });
 
         document.querySelectorAll('.dropdown-item-box')
-        .forEach((element, index) => {
-            element.addEventListener('click', (event) => {
+        .forEach((item, index) => {
+            item.addEventListener('click', (event) => {
                 const currentOption = this.retriveOptionByIndex(index);
                 if (this.currentIndex > -1) {
                     this.unselectedDropdownItem(this.currentIndex);
@@ -116,11 +123,15 @@ export class DropDownList {
                     this.selectedDropdownItem(this.currentIndex);
                 }
 
-                // POINT: 함수를 참조하여 id, label 값을 인자로 넘겨 이벤트를 발생시키시오.
+                // q4. 함수(dispatchEvent)를 참조하여 id, label 값을 인자로 넘겨 이벤트를 발생시키시오.
+                // 선택한 인덱스와 스타일 저장에 대한 액션 이벤트 처리
+                /*
                 this.dispatchEvent({
-                    id: currentOption[this.idField],
-                    label: currentOption[this.labelField]
+                    id: currentOption{this.idField},
+                    label: currentOption{this.labelField}
                 });
+                */
+                this.dispatchEvent(currentOption);
             });
         });
     }
@@ -130,7 +141,7 @@ export class DropDownList {
     * description: dropdown 에서 발생된 이벤트를 외부로 전송
     */ 
     dispatchEvent(item) {
-        // POINT: 선택된 아이템의 라벨로 변경하고, dropdown item 영역을 화면에서 보이지 않도록 하시오.
+        // 선택된 아이템의 라벨로 변경하고, dropdown item 영역을 화면에서 보이지 않도록 하시오.
         this.dropdownLabel.querySelector('.dropdown-select-label').innerHTML = item[this.labelField];
         this.backdrop.style.cssText = 'display: none;';
         // 선택된 아이템을 외부로 callback 함수를 통해 전달.
@@ -138,12 +149,10 @@ export class DropDownList {
     }
 
     selectedDropdownItem(index) {
-        // POINT: style.css 를 참고하여 선택된 dropdown-item-box에 class를 추가하시오.
         document.querySelectorAll('.dropdown-item-box')[index].classList.add('selected');
     }
 
     unselectedDropdownItem(index) {
-        // POINT: style.css 를 참고하여 선택된 dropdown-item-box에 class를 삭제하시오.
         document.querySelectorAll('.dropdown-item-box')[index].classList.remove('selected');
     }
 

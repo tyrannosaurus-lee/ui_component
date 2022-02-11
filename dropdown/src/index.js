@@ -1,8 +1,8 @@
 // Import stylesheets
-import './style.css';
-import { retrieveUserList } from './question/dropdown/mock/user';
-import { retrieveSelectList, retrieveFavoriteById } from './question/dropdown/mock/option';
-import { DropDownList } from './question/dropdown';
+// import './style.css';
+import { retrieveUserList } from './dropdown/mock/user';
+import { retrieveSelectList, retrieveFavoriteById } from './dropdown/mock/option';
+import { DropDownList } from './dropdown';
 
 
 const displayUserList = (selector, data) => {
