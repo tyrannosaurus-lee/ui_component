@@ -75,4 +75,5 @@ line : 118
 ```bash
   $ npm install
   $ npm run dev
+  $ npm run-script build
 ```
