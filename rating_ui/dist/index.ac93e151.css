@@ -1,0 +1,63 @@
+html,
+body,
+#app {
+  margin: 0;
+  height: 100%;
+}
+
+#app {
+  display: grid;
+}
+
+#app .score {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 100px;
+  font-size: 2rem;
+}
+
+#app .stars {
+  position: absolute;
+  top: 150px;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 52px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+#app .stars .star {
+  width: 48px;
+  height: 48px;
+  padding: 2px;
+  display: inline-block;
+}
+
+#app .stars .star.empty {
+  background: url("star-empty.5042ff5c.svg") no-repeat;
+}
+
+#app .stars .star.half {
+  background: url("star-half.d6a7ccac.svg") no-repeat;
+}
+
+#app .stars .star.full {
+  background: url("star-full.cdf4c348.svg") no-repeat;
+}
+
+#app .reset {
+  position: absolute;
+  top: 210px;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: url("reset.b0e20bd4.svg") no-repeat;
+}
+/*# sourceMappingURL=index.ac93e151.css.map */
