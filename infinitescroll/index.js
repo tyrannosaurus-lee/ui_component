@@ -13,7 +13,7 @@ const loadMore = async () => {
 };
 
 // onScroll : 성능저하 요인 해결책으로 throttle, debounce
-// debounce : 일정간격으로 한번씩 실행
+// throttle : 일정간격으로 한번씩 실행
 // debounce : 마지막 한 번만 실행
 /*
 const onScroll = e => {
