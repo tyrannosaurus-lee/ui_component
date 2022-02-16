@@ -18,5 +18,8 @@
   },
   "browserslist": [
     "since 2017-06"
-  ]
+  ],
+  "staticFiles": {
+    "staticPath": "static"
+  }
 }
