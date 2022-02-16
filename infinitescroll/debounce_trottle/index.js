@@ -14,8 +14,16 @@ const fetchMore = async () => {
 };
 
 const onScroll = e => {
-  // do something
+  const {
+    scrollHeight,
+    scrollTop,
+    clientHeight
+  } = e.target.scrollingElement;
+  console.log(`${scrollTop} \n스크롤하는 동안에 안나오다가 놓은 다음 0.3초 뒤에 나옴`);
+  if (scrollTop + clientHeight === scrollHeight){
+    fetchMore();
+  }
 };
 
-document.addEventListener("scroll", undefined /* fix here */);
+document.addEventListener("scroll", debounce(onScroll, 300));
 fetchMore();
