@@ -22,11 +22,12 @@ const onScroll = e => {
     scrollTop,
     clientHeight
   } = e.target.scrollingElement;
-  console.log(`${scrollTop} \n 스크롤 할때마다 스크롤 이벤트가 나타남`);
+  console.log(scrollTop);
   if (scrollTop + clientHeight === scrollHeight){
     fetchMore();
   }
 };
+
 document.addEventListener("scroll", onScroll);
 
 fetchMore();  
