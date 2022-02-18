@@ -1,7 +1,6 @@
 {
-  "name": "q1_js",
+  "name": "onScroll",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html watch"
@@ -19,6 +18,7 @@
   "browserslist": [
     "since 2017-06"
   ],
+  "description": "",
   "staticFiles": {
     "staticPath": "static"
   }

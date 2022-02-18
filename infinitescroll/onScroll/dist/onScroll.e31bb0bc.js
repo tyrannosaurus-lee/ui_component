@@ -144,7 +144,7 @@ function getBundleURL() {
 }
 
 function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
 }
 
 exports.getBundleURL = getBundleURLCached;
@@ -444,8 +444,8 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = _default;
 exports.URL = exports.DNS = void 0;
+exports.default = _default;
 
 var _stringify = _interopRequireDefault(require("./stringify.js"));
 
@@ -955,6 +955,24 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "NIL", {
+  enumerable: true,
+  get: function () {
+    return _nil.default;
+  }
+});
+Object.defineProperty(exports, "parse", {
+  enumerable: true,
+  get: function () {
+    return _parse.default;
+  }
+});
+Object.defineProperty(exports, "stringify", {
+  enumerable: true,
+  get: function () {
+    return _stringify.default;
+  }
+});
 Object.defineProperty(exports, "v1", {
   enumerable: true,
   get: function () {
@@ -979,34 +997,16 @@ Object.defineProperty(exports, "v5", {
     return _v4.default;
   }
 });
-Object.defineProperty(exports, "NIL", {
-  enumerable: true,
-  get: function () {
-    return _nil.default;
-  }
-});
-Object.defineProperty(exports, "version", {
-  enumerable: true,
-  get: function () {
-    return _version.default;
-  }
-});
 Object.defineProperty(exports, "validate", {
   enumerable: true,
   get: function () {
     return _validate.default;
   }
 });
-Object.defineProperty(exports, "stringify", {
+Object.defineProperty(exports, "version", {
   enumerable: true,
   get: function () {
-    return _stringify.default;
-  }
-});
-Object.defineProperty(exports, "parse", {
-  enumerable: true,
-  get: function () {
-    return _parse.default;
+    return _version.default;
   }
 });
 
@@ -1029,16 +1029,7 @@ var _stringify = _interopRequireDefault(require("./stringify.js"));
 var _parse = _interopRequireDefault(require("./parse.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./v1.js":"node_modules/uuid/dist/esm-browser/v1.js","./v3.js":"node_modules/uuid/dist/esm-browser/v3.js","./v4.js":"node_modules/uuid/dist/esm-browser/v4.js","./v5.js":"node_modules/uuid/dist/esm-browser/v5.js","./nil.js":"node_modules/uuid/dist/esm-browser/nil.js","./version.js":"node_modules/uuid/dist/esm-browser/version.js","./validate.js":"node_modules/uuid/dist/esm-browser/validate.js","./stringify.js":"node_modules/uuid/dist/esm-browser/stringify.js","./parse.js":"node_modules/uuid/dist/esm-browser/parse.js"}],"node_modules/lorem-ipsum/dist/constants/words.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.WORDS = void 0;
-var WORDS = ["ad", "adipisicing", "aliqua", "aliquip", "amet", "anim", "aute", "cillum", "commodo", "consectetur", "consequat", "culpa", "cupidatat", "deserunt", "do", "dolor", "dolore", "duis", "ea", "eiusmod", "elit", "enim", "esse", "est", "et", "eu", "ex", "excepteur", "exercitation", "fugiat", "id", "in", "incididunt", "ipsum", "irure", "labore", "laboris", "laborum", "Lorem", "magna", "minim", "mollit", "nisi", "non", "nostrud", "nulla", "occaecat", "officia", "pariatur", "proident", "qui", "quis", "reprehenderit", "sint", "sit", "sunt", "tempor", "ullamco", "ut", "velit", "veniam", "voluptate"];
-exports.WORDS = WORDS;
-},{}],"node_modules/lorem-ipsum/dist/constants/formats.js":[function(require,module,exports) {
+},{"./v1.js":"node_modules/uuid/dist/esm-browser/v1.js","./v3.js":"node_modules/uuid/dist/esm-browser/v3.js","./v4.js":"node_modules/uuid/dist/esm-browser/v4.js","./v5.js":"node_modules/uuid/dist/esm-browser/v5.js","./nil.js":"node_modules/uuid/dist/esm-browser/nil.js","./version.js":"node_modules/uuid/dist/esm-browser/version.js","./validate.js":"node_modules/uuid/dist/esm-browser/validate.js","./stringify.js":"node_modules/uuid/dist/esm-browser/stringify.js","./parse.js":"node_modules/uuid/dist/esm-browser/parse.js"}],"node_modules/lorem-ipsum/dist/constants/formats.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1051,6 +1042,36 @@ var FORMAT_PLAIN = "plain";
 exports.FORMAT_PLAIN = FORMAT_PLAIN;
 var FORMATS = [FORMAT_HTML, FORMAT_PLAIN];
 exports.FORMATS = FORMATS;
+},{}],"node_modules/lorem-ipsum/dist/constants/units.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UNITS = exports.UNIT_PARAGRAPH = exports.UNIT_PARAGRAPHS = exports.UNIT_SENTENCE = exports.UNIT_SENTENCES = exports.UNIT_WORD = exports.UNIT_WORDS = void 0;
+var UNIT_WORDS = "words";
+exports.UNIT_WORDS = UNIT_WORDS;
+var UNIT_WORD = "word";
+exports.UNIT_WORD = UNIT_WORD;
+var UNIT_SENTENCES = "sentences";
+exports.UNIT_SENTENCES = UNIT_SENTENCES;
+var UNIT_SENTENCE = "sentence";
+exports.UNIT_SENTENCE = UNIT_SENTENCE;
+var UNIT_PARAGRAPHS = "paragraphs";
+exports.UNIT_PARAGRAPHS = UNIT_PARAGRAPHS;
+var UNIT_PARAGRAPH = "paragraph";
+exports.UNIT_PARAGRAPH = UNIT_PARAGRAPH;
+var UNITS = [UNIT_WORDS, UNIT_WORD, UNIT_SENTENCES, UNIT_SENTENCE, UNIT_PARAGRAPHS, UNIT_PARAGRAPH];
+exports.UNITS = UNITS;
+},{}],"node_modules/lorem-ipsum/dist/constants/words.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.WORDS = void 0;
+var WORDS = ["ad", "adipisicing", "aliqua", "aliquip", "amet", "anim", "aute", "cillum", "commodo", "consectetur", "consequat", "culpa", "cupidatat", "deserunt", "do", "dolor", "dolore", "duis", "ea", "eiusmod", "elit", "enim", "esse", "est", "et", "eu", "ex", "excepteur", "exercitation", "fugiat", "id", "in", "incididunt", "ipsum", "irure", "labore", "laboris", "laborum", "Lorem", "magna", "minim", "mollit", "nisi", "non", "nostrud", "nulla", "occaecat", "officia", "pariatur", "proident", "qui", "quis", "reprehenderit", "sint", "sit", "sunt", "tempor", "ullamco", "ut", "velit", "veniam", "voluptate"];
+exports.WORDS = WORDS;
 },{}],"node_modules/lorem-ipsum/dist/constants/lineEndings.js":[function(require,module,exports) {
 "use strict";
 
@@ -1069,7 +1090,7 @@ exports.LINE_ENDINGS = LINE_ENDINGS;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 /**
  * @param str  A string that may or may not be capitalized.
  * @returns    A capitalized string.
@@ -1081,14 +1102,14 @@ var capitalize = function capitalize(str) {
 };
 
 var _default = capitalize;
-exports.default = _default;
+exports["default"] = _default;
 },{}],"node_modules/lorem-ipsum/dist/util/isNode.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 /**
  * @returns  True if the runtime is NodeJS.
  */
@@ -1098,24 +1119,35 @@ var isNode = function isNode() {
 };
 
 var _default = isNode;
-exports.default = _default;
+exports["default"] = _default;
 },{}],"node_modules/lorem-ipsum/dist/util/isReactNative.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 /**
+ * Check if runtime is ReactNative.
+ * Solution based on https://github.com/knicklabs/lorem-ipsum.js/pull/52/files
+ *
  * @returns  True if runtime is ReactNative.
  */
 
 var isReactNative = function isReactNative() {
-  return typeof navigator !== "undefined" && navigator.product === "ReactNative";
+  var isReactNativeResult = false;
+
+  try {
+    isReactNativeResult = navigator.product === "ReactNative";
+  } catch (e) {
+    isReactNativeResult = false;
+  }
+
+  return isReactNativeResult;
 };
 
 var _default = isReactNative;
-exports.default = _default;
+exports["default"] = _default;
 },{}],"node_modules/lorem-ipsum/dist/constants/platforms.js":[function(require,module,exports) {
 "use strict";
 
@@ -1345,7 +1377,7 @@ var process = require("process");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _platforms = require("../constants/platforms");
 /**
@@ -1354,18 +1386,26 @@ var _platforms = require("../constants/platforms");
 
 
 var isWindows = function isWindows() {
-  return typeof process !== "undefined" && process.platform === _platforms.SUPPORTED_PLATFORMS.WIN32;
+  var isWindowsResult = false;
+
+  try {
+    isWindowsResult = process.platform === _platforms.SUPPORTED_PLATFORMS.WIN32;
+  } catch (e) {
+    isWindowsResult = false;
+  }
+
+  return isWindowsResult;
 };
 
 var _default = isWindows;
-exports.default = _default;
+exports["default"] = _default;
 },{"../constants/platforms":"node_modules/lorem-ipsum/dist/constants/platforms.js","process":"node_modules/process/browser.js"}],"node_modules/lorem-ipsum/dist/util/makeArrayOfLength.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 /**
  * @param length Length "x".
  * @returns      An array of indexes of length "x".
@@ -1379,14 +1419,14 @@ var makeArrayOfLength = function makeArrayOfLength() {
 };
 
 var _default = makeArrayOfLength;
-exports.default = _default;
+exports["default"] = _default;
 },{}],"node_modules/lorem-ipsum/dist/util/makeArrayOfStrings.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _ = require(".");
 /**
@@ -1403,7 +1443,7 @@ var makeArrayOfStrings = function makeArrayOfStrings(length, makeString) {
 };
 
 var _default = makeArrayOfStrings;
-exports.default = _default;
+exports["default"] = _default;
 },{".":"node_modules/lorem-ipsum/dist/util/index.js"}],"node_modules/lorem-ipsum/dist/util/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -1413,37 +1453,37 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "capitalize", {
   enumerable: true,
   get: function get() {
-    return _capitalize.default;
+    return _capitalize["default"];
   }
 });
 Object.defineProperty(exports, "isNode", {
   enumerable: true,
   get: function get() {
-    return _isNode.default;
+    return _isNode["default"];
   }
 });
 Object.defineProperty(exports, "isReactNative", {
   enumerable: true,
   get: function get() {
-    return _isReactNative.default;
+    return _isReactNative["default"];
   }
 });
 Object.defineProperty(exports, "isWindows", {
   enumerable: true,
   get: function get() {
-    return _isWindows.default;
+    return _isWindows["default"];
   }
 });
 Object.defineProperty(exports, "makeArrayOfLength", {
   enumerable: true,
   get: function get() {
-    return _makeArrayOfLength.default;
+    return _makeArrayOfLength["default"];
   }
 });
 Object.defineProperty(exports, "makeArrayOfStrings", {
   enumerable: true,
   get: function get() {
-    return _makeArrayOfStrings.default;
+    return _makeArrayOfStrings["default"];
   }
 });
 
@@ -1461,7 +1501,7 @@ var _makeArrayOfStrings = _interopRequireDefault(require("./makeArrayOfStrings")
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
-    default: obj
+    "default": obj
   };
 }
 },{"./capitalize":"node_modules/lorem-ipsum/dist/util/capitalize.js","./isNode":"node_modules/lorem-ipsum/dist/util/isNode.js","./isReactNative":"node_modules/lorem-ipsum/dist/util/isReactNative.js","./isWindows":"node_modules/lorem-ipsum/dist/util/isWindows.js","./makeArrayOfLength":"node_modules/lorem-ipsum/dist/util/makeArrayOfLength.js","./makeArrayOfStrings":"node_modules/lorem-ipsum/dist/util/makeArrayOfStrings.js"}],"node_modules/lorem-ipsum/dist/lib/generator.js":[function(require,module,exports) {
@@ -1470,7 +1510,7 @@ function _interopRequireDefault(obj) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _words = require("../constants/words");
 
@@ -1605,14 +1645,14 @@ var Generator = /*#__PURE__*/function () {
 }();
 
 var _default = Generator;
-exports.default = _default;
+exports["default"] = _default;
 },{"../constants/words":"node_modules/lorem-ipsum/dist/constants/words.js","../util":"node_modules/lorem-ipsum/dist/util/index.js"}],"node_modules/lorem-ipsum/dist/lib/LoremIpsum.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _formats = require("../constants/formats");
 
@@ -1624,7 +1664,7 @@ var _util = require("../util");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
-    default: obj
+    "default": obj
   };
 }
 
@@ -1673,19 +1713,16 @@ var LoremIpsum = /*#__PURE__*/function () {
 
     _classCallCheck(this, LoremIpsum);
 
+    this.format = format;
+    this.suffix = suffix;
+
     _defineProperty(this, "generator", void 0);
-
-    _defineProperty(this, "format", void 0);
-
-    _defineProperty(this, "suffix", void 0);
 
     if (_formats.FORMATS.indexOf(format.toLowerCase()) === -1) {
       throw new Error("".concat(format, " is an invalid format. Please use ").concat(_formats.FORMATS.join(" or "), "."));
     }
 
-    this.format = format.toLowerCase();
-    this.suffix = suffix;
-    this.generator = new _generator.default(options);
+    this.generator = new _generator["default"](options);
   }
 
   _createClass(LoremIpsum, [{
@@ -1741,7 +1778,7 @@ var LoremIpsum = /*#__PURE__*/function () {
 }();
 
 var _default = LoremIpsum;
-exports.default = _default;
+exports["default"] = _default;
 },{"../constants/formats":"node_modules/lorem-ipsum/dist/constants/formats.js","../constants/lineEndings":"node_modules/lorem-ipsum/dist/constants/lineEndings.js","../lib/generator":"node_modules/lorem-ipsum/dist/lib/generator.js","../util":"node_modules/lorem-ipsum/dist/util/index.js"}],"node_modules/lorem-ipsum/dist/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -1751,10 +1788,14 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "LoremIpsum", {
   enumerable: true,
   get: function get() {
-    return _LoremIpsum.default;
+    return _LoremIpsum["default"];
   }
 });
 exports.loremIpsum = void 0;
+
+var _formats = require("./constants/formats");
+
+var _units = require("./constants/units");
 
 var _words = require("./constants/words");
 
@@ -1762,7 +1803,7 @@ var _LoremIpsum = _interopRequireDefault(require("./lib/LoremIpsum"));
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
-    default: obj
+    "default": obj
   };
 }
 
@@ -1771,7 +1812,7 @@ var loremIpsum = function loremIpsum() {
       _ref$count = _ref.count,
       count = _ref$count === void 0 ? 1 : _ref$count,
       _ref$format = _ref.format,
-      format = _ref$format === void 0 ? "plain" : _ref$format,
+      format = _ref$format === void 0 ? _formats.FORMAT_PLAIN : _ref$format,
       _ref$paragraphLowerBo = _ref.paragraphLowerBound,
       paragraphLowerBound = _ref$paragraphLowerBo === void 0 ? 3 : _ref$paragraphLowerBo,
       _ref$paragraphUpperBo = _ref.paragraphUpperBound,
@@ -1782,7 +1823,7 @@ var loremIpsum = function loremIpsum() {
       _ref$sentenceUpperBou = _ref.sentenceUpperBound,
       sentenceUpperBound = _ref$sentenceUpperBou === void 0 ? 15 : _ref$sentenceUpperBou,
       _ref$units = _ref.units,
-      units = _ref$units === void 0 ? "sentences" : _ref$units,
+      units = _ref$units === void 0 ? _units.UNIT_SENTENCES : _ref$units,
       _ref$words = _ref.words,
       words = _ref$words === void 0 ? _words.WORDS : _ref$words,
       _ref$suffix = _ref.suffix,
@@ -1800,19 +1841,19 @@ var loremIpsum = function loremIpsum() {
       min: sentenceLowerBound
     }
   };
-  var lorem = new _LoremIpsum.default(options, format, suffix);
+  var lorem = new _LoremIpsum["default"](options, format, suffix);
 
   switch (units) {
-    case "paragraphs":
-    case "paragraph":
+    case _units.UNIT_PARAGRAPHS:
+    case _units.UNIT_PARAGRAPH:
       return lorem.generateParagraphs(count);
 
-    case "sentences":
-    case "sentence":
+    case _units.UNIT_SENTENCES:
+    case _units.UNIT_SENTENCE:
       return lorem.generateSentences(count);
 
-    case "words":
-    case "word":
+    case _units.UNIT_WORDS:
+    case _units.UNIT_WORD:
       return lorem.generateWords(count);
 
     default:
@@ -1821,7 +1862,7 @@ var loremIpsum = function loremIpsum() {
 };
 
 exports.loremIpsum = loremIpsum;
-},{"./constants/words":"node_modules/lorem-ipsum/dist/constants/words.js","./lib/LoremIpsum":"node_modules/lorem-ipsum/dist/lib/LoremIpsum.js"}],"listBuilder.js":[function(require,module,exports) {
+},{"./constants/formats":"node_modules/lorem-ipsum/dist/constants/formats.js","./constants/units":"node_modules/lorem-ipsum/dist/constants/units.js","./constants/words":"node_modules/lorem-ipsum/dist/constants/words.js","./lib/LoremIpsum":"node_modules/lorem-ipsum/dist/lib/LoremIpsum.js"}],"listBuilder.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1866,7 +1907,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.dummyFetcher = exports.randomTimer = void 0;
+exports.randomTimer = exports.dummyFetcher = void 0;
 
 const getRandomSeconds = () => (Math.round(Math.random() * 5) + 1) * 250;
 
@@ -1901,7 +1942,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const listElem = document.querySelector("#list");
 
-const renderItem = (_ref) => {
+const renderItem = _ref => {
   let {
     id,
     no,
@@ -1951,7 +1992,7 @@ const onScroll = e => {
     scrollTop,
     clientHeight
   } = e.target.scrollingElement;
-  console.log(scrollTop);
+  console.log("".concat(scrollTop, " \n \uC2A4\uD06C\uB864 \uD560\uB54C\uB9C8\uB2E4 \uC2A4\uD06C\uB864 \uC774\uBCA4\uD2B8\uAC00 \uB098\uD0C0\uB0A8"));
 
   if (scrollTop + clientHeight === scrollHeight) {
     fetchMore();
@@ -1988,7 +2029,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51992" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63821" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
