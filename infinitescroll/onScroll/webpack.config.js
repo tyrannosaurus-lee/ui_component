@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: ''
+    publicPath: './'
 };
 
 // const { resolve } = require('path')
