@@ -1,4 +1,4 @@
-import "./style.css";
+// import "./style.css";
 import renderList from "./listRenderer";
 
 const app = document.querySelector("#app");
