@@ -41,6 +41,7 @@
     </style>
 </head>
 <body>
+    <!-- 가로형 메뉴 -->
     <nav>
         <div id="horizontal-underline"></div>
         <a href="#">About</a>
@@ -49,6 +50,9 @@
         <a href="#">Service</a>
         <a href="#">Responsibility</a>
     </nav>
+    <!-- //가로형 메뉴 -->
+
+    <!-- 세로형 메뉴 -->
     <nav>
         <div id="vertical-underline"></div>
         <a href="#">About</a>
@@ -57,43 +61,46 @@
         <a href="#">Service</a>
         <a href="#">Responsibility</a>
     </nav>
+    <!-- //세로형 메뉴 -->
+
     <script>
+        /* 가로형 메뉴 */
         let horizontalUnderLine = document.getElementById("horizontal-underline");
         let horizontalMenus = document.querySelectorAll("nav:first-child a");
         let horizontalFirstOffset = document.querySelector("nav div + a");
-        horizontalUnderLine.style.left = horizontalFirstOffset.offsetLeft + "px";
-        horizontalUnderLine.style.width = horizontalFirstOffset.offsetWidth + "px";
-        horizontalUnderLine.style.top = horizontalFirstOffset.offsetTop + horizontalFirstOffset.offsetHeight + "px";
 
         function horizontalIndicator(e) {
             horizontalUnderLine.style.left = e.offsetLeft + "px";
             horizontalUnderLine.style.width = e.offsetWidth + "px";
             horizontalUnderLine.style.top = e.offsetTop + e.offsetHeight + "px";
         }
+
+        horizontalIndicator(horizontalFirstOffset);
+
         horizontalMenus.forEach((menu) =>
             menu.addEventListener("click", (e) =>
                 horizontalIndicator(e.currentTarget)
             )
         )
 
+        /* 세로형 메뉴 */
         let verticalUnderLine = document.getElementById("vertical-underline");
         let verticalMenus = document.querySelectorAll("nav:nth-child(2) a");
         let verticalFirstOffset = document.querySelector("nav:nth-child(2) div + a");
-        verticalUnderLine.style.left = verticalFirstOffset.offsetLeft + "px";
-        verticalUnderLine.style.width = verticalFirstOffset.offsetWidth + "px";
-        verticalUnderLine.style.top = verticalFirstOffset.offsetTop + verticalFirstOffset.offsetHeight + "px";
 
         function verticalIndicator(e) {
             verticalUnderLine.style.left = e.offsetLeft + "px";
             verticalUnderLine.style.width = e.offsetWidth + "px";
             verticalUnderLine.style.top = e.offsetTop + e.offsetHeight + "px";
         }
+
+        verticalIndicator(verticalFirstOffset);
+
         verticalMenus.forEach((menu) =>
             menu.addEventListener("click", (e) =>
                 verticalIndicator(e.currentTarget)
             )
         )
-
     </script>
 </body>
 </html>
