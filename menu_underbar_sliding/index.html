@@ -25,25 +25,18 @@
 
     #horizontal-underline{
         position: absolute;
-        left:0;
         height: 4px;
-        /* width: 0; */
         border-radius: 3px;
         transition: 0.5s;
         background-color: pink;
-        top:0;
-
     }
 
     #vertical-underline{
         position: absolute;
-        left:0;
         height: 4px;
-        /* width: 0; */
         border-radius: 3px;
         transition: 0.5s;
         background-color: skyblue;
-        top:0;
     }
     </style>
 </head>
@@ -67,9 +60,10 @@
     <script>
         let horizontalUnderLine = document.getElementById("horizontal-underline");
         let horizontalMenus = document.querySelectorAll("nav:first-child a");
-        let verticalUnderLine = document.getElementById("vertical-underline");
-        let verticalMenus = document.querySelectorAll("nav:nth-child(2) a");
-
+        let horizontalFirstOffset = document.querySelector("nav div + a");
+        horizontalUnderLine.style.left = horizontalFirstOffset.offsetLeft + "px";
+        horizontalUnderLine.style.width = horizontalFirstOffset.offsetWidth + "px";
+        horizontalUnderLine.style.top = horizontalFirstOffset.offsetTop + horizontalFirstOffset.offsetHeight + "px";
 
         function horizontalIndicator(e) {
             horizontalUnderLine.style.left = e.offsetLeft + "px";
@@ -81,6 +75,13 @@
                 horizontalIndicator(e.currentTarget)
             )
         )
+
+        let verticalUnderLine = document.getElementById("vertical-underline");
+        let verticalMenus = document.querySelectorAll("nav:nth-child(2) a");
+        let verticalFirstOffset = document.querySelector("nav:nth-child(2) div + a");
+        verticalUnderLine.style.left = verticalFirstOffset.offsetLeft + "px";
+        verticalUnderLine.style.width = verticalFirstOffset.offsetWidth + "px";
+        verticalUnderLine.style.top = verticalFirstOffset.offsetTop + verticalFirstOffset.offsetHeight + "px";
 
         function verticalIndicator(e) {
             verticalUnderLine.style.left = e.offsetLeft + "px";
