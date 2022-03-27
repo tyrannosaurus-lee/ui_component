@@ -6,44 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메뉴 밑줄 슬라이딩 애니메이션</title>
     <style>
-       nav:first-child {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 2em;
-    }
-    nav:nth-child(2){
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    nav a {
-        text-decoration: none;
-        color:black;
-        margin: 1em;
-        font-size: 2em;
-    }
-
-    #horizontal-underline{
-        position: absolute;
-        height: 4px;
-        border-radius: 3px;
-        transition: 0.5s;
-        background-color: pink;
-    }
-
-    #vertical-underline{
-        position: absolute;
-        height: 4px;
-        border-radius: 3px;
-        transition: 0.5s;
-        background-color: skyblue;
-    }
+        #horizontal {display: flex; margin-bottom: 2em; justify-content: center;}
+        #vertical{display: flex;flex-direction: column;align-items: center;}
+        nav a {margin: 1em;font-size: 2em;color:black;text-decoration: none;}
+        nav div {position: absolute;height: 4px; border-radius: 3px;
+            transition: 0.5s;}
+        #horizontal div{background-color: pink;}
+        #vertical div{background-color: skyblue;}
     </style>
+    <script>
+        window.addEventListener('load', function(){
+            /* 가로형 메뉴 */
+            let menus = document.querySelectorAll("nav a");
+            let horizontal = document.querySelector("#horizontal a");
+            let vertical = document.querySelector("#vertical a");
+
+            function indicator(e, bool) {
+                let left = e.offsetLeft + "px";
+                let width = e.offsetWidth + "px";
+                let top = e.offsetTop + e.offsetHeight + "px";
+                let underline = bool ? e.closest('#horizontal').querySelector('div') : e.closest('#vertical').querySelector('div');
+                underline.setAttribute('style', `left:${left}; width:${width};top:${top};`);
+            }
+
+            indicator(horizontal, true);
+            indicator(vertical, false);
+
+            menus.forEach((menu) =>{
+                menu.addEventListener("click", (e) =>{
+                    e.target.closest('#horizontal') ? indicator(e.target, true) : indicator(e.target, false);
+                })
+           })
+        })
+    </script>
 </head>
 <body>
     <!-- 가로형 메뉴 -->
-    <nav>
-        <div id="horizontal-underline"></div>
+    <nav id="horizontal">
+        <div></div>
         <a href="#">About</a>
         <a href="#">Menu</a>
         <a href="#">Store</a>
@@ -53,8 +53,8 @@
     <!-- //가로형 메뉴 -->
 
     <!-- 세로형 메뉴 -->
-    <nav>
-        <div id="vertical-underline"></div>
+    <nav id="vertical">
+        <div></div>
         <a href="#">About</a>
         <a href="#">Menu</a>
         <a href="#">Store</a>
@@ -63,44 +63,6 @@
     </nav>
     <!-- //세로형 메뉴 -->
 
-    <script>
-        /* 가로형 메뉴 */
-        let horizontalUnderLine = document.getElementById("horizontal-underline");
-        let horizontalMenus = document.querySelectorAll("nav:first-child a");
-        let horizontalFirstOffset = document.querySelector("nav div + a");
 
-        function horizontalIndicator(e) {
-            horizontalUnderLine.style.left = e.offsetLeft + "px";
-            horizontalUnderLine.style.width = e.offsetWidth + "px";
-            horizontalUnderLine.style.top = e.offsetTop + e.offsetHeight + "px";
-        }
-
-        horizontalIndicator(horizontalFirstOffset);
-
-        horizontalMenus.forEach((menu) =>
-            menu.addEventListener("click", (e) =>
-                horizontalIndicator(e.currentTarget)
-            )
-        )
-
-        /* 세로형 메뉴 */
-        let verticalUnderLine = document.getElementById("vertical-underline");
-        let verticalMenus = document.querySelectorAll("nav:nth-child(2) a");
-        let verticalFirstOffset = document.querySelector("nav:nth-child(2) div + a");
-
-        function verticalIndicator(e) {
-            verticalUnderLine.style.left = e.offsetLeft + "px";
-            verticalUnderLine.style.width = e.offsetWidth + "px";
-            verticalUnderLine.style.top = e.offsetTop + e.offsetHeight + "px";
-        }
-
-        verticalIndicator(verticalFirstOffset);
-
-        verticalMenus.forEach((menu) =>
-            menu.addEventListener("click", (e) =>
-                verticalIndicator(e.currentTarget)
-            )
-        )
-    </script>
 </body>
 </html>
